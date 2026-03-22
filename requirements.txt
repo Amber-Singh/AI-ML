@@ -1,0 +1,14 @@
+# --- Core AI (Synced Versions) ---
+# CrewAI 0.102.0 requires chromadb >= 0.5.23
+crewai==0.102.0
+chromadb==0.5.23
+onnxruntime==1.16.3
+
+# --- CRITICAL: The Fix for Segmentation Fault ---
+# We MUST keep NumPy at 1.26.4 to avoid the C-API crash on Windows
+numpy==1.26.4
+
+# --- UI & Utilities ---
+streamlit>=1.31.0
+langchain-groq
+python-dotenv
