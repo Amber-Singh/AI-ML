@@ -32,6 +32,7 @@ from Data.recepies import search_recipes, get_collection
 from addRecipeCard import show_add_recipe_form
 from addRecipeFeature import save_recipe_to_chromadb, save_recipe_to_data_py
 from Agents.researchCard import show_deep_research_button
+from recipeManager import show_recipe_manager
 
 load_dotenv()
 
@@ -82,63 +83,69 @@ def login_page():
 def main():
     st.title("🍽️ Recipe AI Chat")
         
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
+    tab1, tab2 = st.tabs(["💬 Chat", "📋 Recipe Manager"])
     
-    if "current_recipes" not in st.session_state:
-        st.session_state.current_recipes = []
-    
-    # 1. Chat history first
-    for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]):
-            st.write(msg["content"])
-
-    # 2. Feature buttons AFTER chat history (appears below messages)
-    if st.session_state.current_recipes:
-        for i,recipe in enumerate(st.session_state.current_recipes):
-            st.divider()
-            create_pdf_download_button(recipe, button_label="📄 Download Search Results as PDF")
-            show_nutrition_card(recipe)
-            show_translate_button(recipe,index =i)
-            show_deep_research_button(recipe,index =i)
-    
-    # Add recipe form — always visible below
-    st.divider()
-    show_add_recipe_form(get_collection()) 
-
-    # 3. Chat input at bottom
-    if prompt := st.chat_input("Search for a recipe..."):
-        st.session_state.current_recipes = []  # clear old results
+    with tab1:
+        if "messages" not in st.session_state:
+            st.session_state.messages = []
         
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.write(prompt)
+        if "current_recipes" not in st.session_state:
+            st.session_state.current_recipes = []
+        
+        # 1. Chat history first
+        for msg in st.session_state.messages:
+            with st.chat_message(msg["role"]):
+                st.write(msg["content"])
+
+        # 2. Feature buttons AFTER chat history (appears below messages)
+        if st.session_state.current_recipes:
+            for i,recipe in enumerate(st.session_state.current_recipes):
+                st.divider()
+                create_pdf_download_button(recipe, button_label="📄 Download Search Results as PDF")
+                show_nutrition_card(recipe)
+                show_translate_button(recipe,index =i)
+                show_deep_research_button(recipe,index =i)
+        
+        # Add recipe form — always visible below
+        st.divider()
+        show_add_recipe_form(get_collection()) 
+
+        # 3. Chat input at bottom
+        if prompt := st.chat_input("Search for a recipe..."):
+            st.session_state.current_recipes = []  # clear old results
             
-        results = search_recipes(prompt)
-        if results:
-            st.session_state.current_recipes = results
-            response = f"Found {len(results)} recipe(s):\n\n"
-            for recipe in results:
-                response += f"**{recipe['name']}**\nIngredients: {', '.join(recipe['ingredients'][:3])}...\n\n"
-        else:
-            results = generate_recipe(prompt)
-            save_recipe_to_chromadb(results, get_collection())
-            save_recipe_to_data_py(results)
-            if isinstance(results, dict):
-                st.session_state.current_recipes = [results]
-                response = f"Generated **{results['name']}** recipe!\n\n"
-                response += f"**Cuisine:** {results['cuisine']}\n"
-                response += f"**Difficulty:** {results['difficulty']}\n"
-                response += f"**Cooking Time:** {results['cooking_time']}\n"
-                response += f"**Ingredients:** {', '.join(results['ingredients'][:3])}...\n"
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.write(prompt)
+                
+            results = search_recipes(prompt)
+            if results:
+                st.session_state.current_recipes = results
+                response = f"Found {len(results)} recipe(s):\n\n"
+                for recipe in results:
+                    response += f"**{recipe['name']}**\nIngredients: {', '.join(recipe['ingredients'][:3])}...\n\n"
             else:
-                response = str(results)
-        
-        st.session_state.messages.append({"role": "assistant", "content": response})
-        with st.chat_message("assistant"):
-            st.write(response)
-        
-        st.rerun()  # ← KEY FIX: rerun so buttons render AFTER messages
+                results = generate_recipe(prompt)
+                save_recipe_to_chromadb(results, get_collection())
+                save_recipe_to_data_py(results)
+                if isinstance(results, dict):
+                    st.session_state.current_recipes = [results]
+                    response = f"Generated **{results['name']}** recipe!\n\n"
+                    response += f"**Cuisine:** {results['cuisine']}\n"
+                    response += f"**Difficulty:** {results['difficulty']}\n"
+                    response += f"**Cooking Time:** {results['cooking_time']}\n"
+                    response += f"**Ingredients:** {', '.join(results['ingredients'][:3])}...\n"
+                else:
+                    response = str(results)
+            
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            with st.chat_message("assistant"):
+                st.write(response)
+            
+            st.rerun()  # ← KEY FIX: rerun so buttons render AFTER messages
+    with tab2:
+        show_recipe_manager()
+
 
 if __name__ == "__main__":
     if st.session_state.logged_in:

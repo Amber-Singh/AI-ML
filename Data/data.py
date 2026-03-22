@@ -2,7 +2,7 @@ import uuid
 
 sample_recipes = [
         {
-            "id": str(uuid.uuid4()),
+            "id": "5c82bb4d-df72-4d00-b8a7-01b30f436a21",
             "name": "Classic Spaghetti Carbonara",
             "cuisine": "Italian",
             "ingredients": [
@@ -31,7 +31,7 @@ sample_recipes = [
             "tips": "The key is to add eggs off heat to avoid scrambling. Use pasta water to achieve perfect creaminess."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "e6f649ef-c3d4-4772-8d72-8c2863fb6206",
             "name": "Thai Green Curry",
             "cuisine": "Thai",
             "ingredients": [
@@ -64,7 +64,7 @@ sample_recipes = [
             "tips": "Adjust spice level by using less curry paste. Add bamboo shoots for extra texture."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "84ec86eb-f6fe-48d3-97ad-44f6ae45ac20",
             "name": "Classic Margherita Pizza",
             "cuisine": "Italian",
             "ingredients": [
@@ -94,7 +94,7 @@ sample_recipes = [
             "tips": "For crispier crust, use pizza stone. Let dough rest at room temperature 30 minutes before shaping."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "f4cf72c5-6828-41cf-a696-9dad322f0124",
             "name": "Chicken Tikka Masala",
             "cuisine": "Indian",
             "ingredients": [
@@ -131,7 +131,7 @@ sample_recipes = [
             "tips": "Marinate longer for deeper flavor. Add kasuri methi (dried fenugreek) for authentic taste."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "1b3f6846-28a1-4f87-9974-8455d0312250",
             "name": "Caesar Salad",
             "cuisine": "American",
             "ingredients": [
@@ -164,7 +164,7 @@ sample_recipes = [
             "tips": "Use pasteurized eggs for safety. Add grilled chicken for a complete meal."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "a34fbddb-c4e9-484e-b19e-0338273a5a96",
             "name": "Vegetable Stir-Fry",
             "cuisine": "Chinese",
             "ingredients": [
@@ -199,7 +199,7 @@ sample_recipes = [
             "tips": "Keep heat high and vegetables moving. Don't overcrowd the pan for best texture."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "e22987c7-c9de-41c5-8d54-9c16d2a34f96",
             "name": "Beef Tacos",
             "cuisine": "Mexican",
             "ingredients": [
@@ -238,7 +238,7 @@ sample_recipes = [
             "tips": "Make it healthier with ground turkey. Add black beans for extra protein and fiber."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "18440cff-bf14-4032-8c20-7ad4185606d3",
             "name": "Mushroom Risotto",
             "cuisine": "Italian",
             "ingredients": [
@@ -274,7 +274,7 @@ sample_recipes = [
             "tips": "Stir constantly for creamiest texture. Rice should be creamy but still have slight bite."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "8f35e1df-c939-4c93-8070-45d431f82cf1",
             "name": "Greek Salad",
             "cuisine": "Greek",
             "ingredients": [
@@ -309,7 +309,7 @@ sample_recipes = [
             "tips": "Use the ripest tomatoes for best flavor. Don't overdress - Greek salad should be light."
         },
         {
-            "id": str(uuid.uuid4()),
+            "id": "58bee054-8ac4-4f4f-9d02-bffa1bdf9cf0",
             "name": "Pad Thai",
             "cuisine": "Thai",
             "ingredients": [
@@ -347,89 +347,7 @@ sample_recipes = [
             "tips": "High heat is essential. Have all ingredients prepped before starting. Don't overcook noodles."
         },
         {
-            "id": str(uuid.uuid4()),
-            "name": "Shahi Paneer",
-            "cuisine": "Indian",
-            "ingredients": [
-                "250 grams paneer cut into small cubes",
-                "2 large onions finely chopped",
-                "2 large tomatoes finely chopped",
-                "1 teaspoon cumin seeds",
-                "1 teaspoon coriander powder",
-                "1/2 teaspoon garam masala powder",
-                "1/2 teaspoon turmeric powder",
-                "1/2 teaspoon red chili powder",
-                "1/2 teaspoon salt",
-                "1/4 teaspoon black pepper",
-                "2 tablespoons butter",
-                "2 tablespoons vegetable oil",
-                "2 cloves garlic minced",
-                "1 inch ginger grated",
-                "1 cup heavy cream",
-                "1 cup water",
-                "Fresh cilantro for garnish"
-            ],
-            "instructions": """1. Heat 1 tablespoon of butter and 1 tablespoon of oil in a pan, add cumin seeds and let them sizzle.
-2. Add chopped onions and cook until they are translucent.
-3. Add chopped tomatoes, ginger, and garlic. Cook until the tomatoes are soft.
-4. Add coriander powder, garam masala powder, turmeric powder, red chili powder, salt, and black pepper. Mix well.
-5. Add heavy cream and water, stir well and bring to a boil.
-6. Reduce the heat and add the paneer cubes. Simmer for 5-7 minutes.
-7. Garnish with cilantro and serve hot.""",
-            "cooking_time": "20 minutes",
-            "prep_time": "15 minutes",
-            "difficulty": "Medium",
-            "servings": "4",
-            "calories_per_serving": "320",
-            "dietary_info": "Contains dairy. Gluten-free without naan.",
-            "tips": "Use fresh paneer for the best results. Adjust the amount of chili powder to suit your spice level. Serve with basmati rice or naan for a complete meal."
-        },
-        {
-            "id": str(uuid.uuid4()),
-            "name": "Butter Chicken",
-            "cuisine": "Indian",
-            "ingredients": [
-                "1 1/2 pounds boneless chicken breast or thighs",
-                "1/2 cup plain yogurt",
-                "2 tablespoons lemon juice",
-                "2 tablespoons ghee or vegetable oil",
-                "2 medium onions",
-                "2 cloves garlic",
-                "1 teaspoon grated fresh ginger",
-                "1 teaspoon ground cumin",
-                "1 teaspoon ground coriander",
-                "1/2 teaspoon ground cayenne pepper",
-                "1/2 teaspoon salt",
-                "1/4 teaspoon black pepper",
-                "2 large tomatoes",
-                "2 tablespoons butter",
-                "2 tablespoons all-purpose flour",
-                "1 cup chicken broth",
-                "1/2 cup heavy cream",
-                "Fresh cilantro leaves for garnish"
-            ],
-            "instructions": """1. In a large bowl, whisk together the yogurt, lemon juice, ghee or oil, cumin, coriander, cayenne, salt, and black pepper.
-2. Add the chicken to the marinade and mix well to coat. Cover and refrigerate for at least 30 minutes or up to 2 hours.
-3. Heat 2 tablespoons of butter in a large saucepan over medium heat. Remove the chicken from the marinade and cook until browned on all sides and cooked through, about 6-8 minutes.
-4. Transfer the chicken to a plate and set aside. In the same saucepan, add the remaining 2 tablespoons of butter.
-5. Add the onions to the saucepan and cook, stirring occasionally, until they are lightly browned, about 8 minutes.
-6. Add the garlic and ginger to the saucepan and cook, stirring constantly, for 1 minute.
-7. Stir in the flour and cook for 1 minute.
-8. Add the tomatoes, chicken broth, and heavy cream to the saucepan. Bring the mixture to a simmer.
-9. Reduce the heat to low and simmer, stirring occasionally, until the sauce has thickened, about 10-15 minutes.
-10. Add the cooked chicken back to the saucepan and stir to coat with the sauce.
-11. Taste and adjust the seasoning as needed.
-12. Garnish with cilantro leaves and serve over basmati rice or with naan bread.""",
-            "cooking_time": "25 minutes",
-            "prep_time": "20 minutes",
-            "difficulty": "Medium",
-            "servings": "4",
-            "calories_per_serving": "420",
-            "dietary_info": "Contains dairy. Gluten-free without naan.",
-            "tips": "For best results, use high-quality ingredients and cook the sauce slowly to allow the flavors to meld together. You can also add other spices, such as cinnamon or cardamom, to the sauce for added depth of flavor."
-        },
-        {
-            "id": str(uuid.uuid4()),
+            "id": "a4bc2dea-8951-470a-9991-3bf6c845b2db",
             "name": "Matar Paneer",
             "cuisine": "Indian",
             "ingredients": [

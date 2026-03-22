@@ -19,7 +19,7 @@ def init_chromadb():
         import chromadb
         
         # Use ephemeral client (in-memory, no embeddings)
-        client = chromadb.EphemeralClient()
+        client = chromadb.EphemeralClient(settings=chromadb.Settings(allow_reset=True))
         _recipes_collection = client.get_or_create_collection(name="recipes")
         
         # Add recipes without embeddings
@@ -41,20 +41,37 @@ def init_chromadb():
         return None
 
 def get_recipes():
-    """Fetch all recipes from ChromaDB or cache"""
+    """Fetch all recipes filtering out deleted/hidden ones."""
+    # Load deleted IDs
+    deleted_ids = set()
+    if os.path.exists("Data/deleted_ids.json"):
+        try:
+            with open("Data/deleted_ids.json", "r") as f:
+                deleted_ids = set(json.load(f))
+        except:
+            pass
+
     try:
         collection = init_chromadb()
         if collection and _recipes_cache is None:
             result = collection.get()
             if result and result['metadatas']:
-                return [json.loads(m['full_data']) for m in result['metadatas']]
+                all_recipes = [json.loads(m['full_data']) for m in result['metadatas']]
+                return [r for r in all_recipes if r["id"] not in deleted_ids]
     except Exception as e:
         print(f"Error fetching from ChromaDB: {e}")
-    
-    # Use cache if ChromaDB fails
-    if _recipes_cache:
-        return _recipes_cache
-    return sample_recipes
+
+    # Fallback — merge sample + custom
+    all_recipes = list(sample_recipes)
+    if os.path.exists("Data/custom_recipes.json"):
+        try:
+            with open("Data/custom_recipes.json", "r") as f:
+                custom = json.load(f)
+                all_recipes.extend(custom)
+        except Exception as e:
+            print(f"Error loading custom recipes: {e}")
+
+    return [r for r in all_recipes if r["id"] not in deleted_ids]
 
 
 def extract_keywords(query: str) -> list:
