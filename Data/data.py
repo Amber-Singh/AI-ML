@@ -347,43 +347,66 @@ sample_recipes = [
             "tips": "High heat is essential. Have all ingredients prepped before starting. Don't overcook noodles."
         },
         {
-            "id": "a4bc2dea-8951-470a-9991-3bf6c845b2db",
-            "name": "Matar Paneer",
+            "id": str(uuid.uuid4()),
+            "name": "Butter Chicken",
             "cuisine": "Indian",
             "ingredients": [
-                "250g paneer cut into cubes",
-                "1 cup peas",
-                "2 medium onions",
+                "1 1/2 pounds boneless chicken breast or thighs with bones",
+                "2 large onions",
                 "2 cloves garlic",
-                "1 medium tomato",
-                "1 tablespoon ghee",
-                "1 teaspoon cumin seeds",
-                "1 teaspoon coriander powder",
+                "2 medium tomatoes",
+                "1 tablespoon butter",
                 "1 teaspoon garam masala",
-                "1/2 teaspoon turmeric",
-                "1/2 teaspoon red chili powder",
-                "Salt to taste",
-                "2 tablespoons butter",
-                "2 tablespoons all purpose flour",
-                "1 cup milk",
-                "Chopped cilantro for garnish"
+                "1 teaspoon cumin powder",
+                "1/2 teaspoon cayenne pepper",
+                "1/2 teaspoon salt",
+                "1/4 teaspoon black pepper",
+                "2 tablespoons tomato puree",
+                "2 tablespoons heavy cream",
+                "2 tablespoons chopped fresh cilantro"
             ],
-            "instructions": """1. Heat ghee in a pan and saute the cumin seeds and onions until the onions are translucent.
-2. Add garlic, ginger and saute for another minute.
-3. Add the peas, salt, coriander powder, garam masala, turmeric, and red chili powder. Mix well.
-4. Cook for 5 minutes or until the peas are tender.
-5. Add the paneer cubes and stir gently.
-6. In a separate pan, melt butter and add flour. Stir to make a smooth paste.
-7. Add milk to the flour mixture and stir continuously to avoid lumps.
-8. Pour the milk mixture over the paneer and peas mixture and stir well.
-9. Reduce heat and simmer for 10 minutes or until the gravy thickens.
-10. Garnish with cilantro and serve hot.""",
+            "instructions": """1. Marinate the chicken in a mixture of yogurt and spices for at least 30 minutes.
+2. Grill or cook the chicken until it is cooked through.
+3. In a saucepan, melt 1 tablespoon of butter and saute the onions until they are translucent.
+4. Add the garlic, ginger, and spices to the saucepan and cook for 1 minute.
+5. Add the tomato puree, heavy cream, and cooked chicken to the saucepan and stir to combine.
+6. Bring the mixture to a simmer and cook for 10 minutes or until the sauce has thickened.
+7. Season with salt and pepper to taste.
+8. Garnish with cilantro and serve over basmati rice or with naan bread.""",
             "cooking_time": "25 minutes",
             "prep_time": "20 minutes",
             "difficulty": "Medium",
             "servings": "4",
             "calories_per_serving": "420",
             "dietary_info": "Contains dairy. Gluten-free without naan.",
-            "tips": "Use fresh peas for the best flavor and texture. You can also add other spices like cardamom or cinnamon to give it a unique flavor."
+            "tips": "Use high quality ingredients and adjust the spice level to your liking. You can also add bell peppers or other vegetables to the sauce for added flavor."
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "name": "Butter Chicken Recipe",
+            "cuisine": "Western",
+            "ingredients": [
+                "1 pound boneless chicken breast with skin",
+                "4 tablespoons unsalted butter",
+                "2 cloves garlic minced",
+                "1 teaspoon salt",
+                "1/2 teaspoon black pepper",
+                "1/2 teaspoon paprika"
+            ],
+            "instructions": """1. Rinse the chicken and pat dry with paper towels
+2. Season the chicken with salt pepper and paprika
+3. Melt 2 tablespoons of butter in a large skillet over medium heat
+4. Add the chicken to the skillet and cook for 5-6 minutes per side or until cooked through
+5. Remove the chicken from the skillet and set aside
+6. Add the remaining 2 tablespoons of butter to the skillet
+7. Add the minced garlic to the skillet and cook for 1 minute
+8. Serve the chicken with the garlic butter sauce""",
+            "cooking_time": "25 minutes",
+            "prep_time": "15 minutes",
+            "difficulty": "Easy",
+            "servings": "4",
+            "calories_per_serving": "320",
+            "dietary_info": "Contains dairy",
+            "tips": "Use high quality unsalted butter for the best flavor"
         }
     ]
